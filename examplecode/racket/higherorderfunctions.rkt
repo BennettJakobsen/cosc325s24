@@ -54,11 +54,12 @@
     (append (list (cons (car lis1) (countAppearances (car lis1) lis2))) (countAll (cdr lis1) lis2))))
 
 (define (mode lis)
+  (if (= (length lis) 0) (print "Hey, stop trying to use empty lists!")
   (let
       [
        (listcounts (countAll (remove-duplicates lis) lis))
       ]
-    (car (car (sort listcounts pairorder)))))
+    (car (car (sort listcounts pairorder))))))
 
 (define (pairorder a b)
   (> (cdr a) (cdr b)))
